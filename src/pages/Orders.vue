@@ -2,10 +2,8 @@
 import { onBeforeMount, ref } from 'vue';
 import MarketHeader from '../components/MarketHeader.vue';
 import OrderComponent from '../components/OrderComponent.vue';
-import {useWalletStore} from '../stores/wallet';
 
 const orders = ref([]);
-const wallet = useWalletStore();
 
 onBeforeMount(() => {
   let wall = localStorage.getItem('wallet');

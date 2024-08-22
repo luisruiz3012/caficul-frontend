@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { useCartStore } from '../stores/cart';
 import { useMarketStore } from '../stores/market.ts';
 
