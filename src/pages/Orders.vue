@@ -8,9 +8,16 @@ const orders = ref([]);
 onBeforeMount(() => {
   let wall = localStorage.getItem('wallet');
 
-  fetch(`${import.meta.env.VITE_API_GET_ORDERS_URL}${wall}`)
+  fetch(`${import.meta.env.VITE_API_GET_ORDERS_URL}${wall}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    }
+  })
   .then(res => res.json())
   .then(res => {
+    console.log(res);
     orders.value = res
   })
 })

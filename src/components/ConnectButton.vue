@@ -31,6 +31,16 @@ const provider: IProvider = {
 
     walletStore.setWallet(w);
     localStorage.setItem('wallet', w);
+
+    fetch(`${import.meta.env.VITE_API_URL}/auth`, {
+      method: 'POST',
+      body: JSON.stringify({ wallet: w }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then(res => res.json())
+    .then(res => {
+      localStorage.setItem('token', res);
+    })
   }
 </script>
 
